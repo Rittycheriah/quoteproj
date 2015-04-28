@@ -1,0 +1,13 @@
+{
+ "_id" : {"$oid":"q00000000000000000000001"},
+ "quote" : "I'm a quote",
+ "mood" : "happy"
+}, 
+
+
+// EXACT _id - increment #, change quote, change mood 
+// two quotes for each adj.
+// Schema for quotes and possible create your own
+
+// v1 - can we pull one in first? 
+// v2 - randomize that quote
