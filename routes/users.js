@@ -5,6 +5,7 @@ var UserController = require("../userController");
 var UserModel = require("../models/user");
 var quotes = require("../models/quote");
 
+
 // Send the error message back to the client
 var sendError = function (req, res, err, message) {
 	console.log('Render the error template');
