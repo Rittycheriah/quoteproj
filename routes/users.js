@@ -37,7 +37,7 @@ var getUserQuotes = function (userId) {
 	return deferred.promise;
 };
 
-//Handle requset for registering
+//Handle request for registering
 app.get("/index", function(req, res){
   res.render("index");
 });
