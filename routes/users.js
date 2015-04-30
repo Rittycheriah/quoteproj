@@ -39,7 +39,7 @@ var getUserQuotes = function (userId) {
 
 //Handle request for registering
 app.get("/index", function(req, res){
-  res.render("index");
+  res.render("/index");
 });
 
 //Handle request from registration/index form
@@ -54,6 +54,26 @@ app.post("/index", function(req, res){
 		}
 	});
 });
+
+// Handle the request for the registration form
+app.get("/register", function (req, res) {
+  res.render("register");
+});
+
+
+// Handle the registration form post
+app.post("/register", function (req, res) {
+  var newUser = new UserModel(req.body);
+
+  newUser.save(function (err, user) {
+    if (err) {
+      sendError(req, res, err, "Failed to register user");
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
 
 // Handle the login action 
 app.post("/login", function(req, res) {
@@ -70,7 +90,7 @@ app.post("/login", function(req, res) {
 
 		getUserQuotes(validUser._id)
 		  .then(function (quotes) {
-		  	res.redirect("/quotes");
+		  	res.redirect("/quoteListHome");
 		  })
       .fail(function(err) {
       	sendError(req, res, {errors: err.message}, "Not working");
@@ -81,6 +101,11 @@ app.post("/login", function(req, res) {
     console.log('Failed looking up user');
     sendError(req, res, {errors: err.message}, "Failed");
 	});
+});
+
+app.get("/logout", function(req, res){
+	UserController.logout();
+	res.redirect("/");
 });
 
 module.exports = app;

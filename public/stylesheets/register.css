@@ -1,1 +1,28 @@
 /*#FEFCE0 color for div filter on bg image*/
+h1 {
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+}
+
+#loginForm {
+  margin: 0 auto;
+  width: 260px;
+}
+
+.carouselimgs {
+	height: 500px !important;
+	margin-left: 20%;
+	margin-right: 25%;
+}
+
+div.formcontrol {
+	width: 280px !important;
+	margin-left: 50px;
+}
+
+.submitbutton {
+	margin-left: 50px;
+}
