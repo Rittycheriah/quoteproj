@@ -1,13 +1,68 @@
 {
  "_id" : {"$oid":"q00000000000000000000001"},
- "quote" : "I'm a quote",
- "mood" : "happy"
-}, 
+ "quote" : "Some things don't need moderation, like breathing and love.",
+ "mood" : "loved"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000002"},
+ "quote" : "Opposites attract but similarities bond",
+ "mood" : "loved"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000003"},
+ "quote" : "You get to define the terms of your life -CS",
+ "mood" : "encouraged"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000004"},
+ "quote" : "Life is like a camera.  Just focus on what's important and capture the good times, develop from the negatives, and if things don't work out -- just take another shot.",
+ "mood" : "encouraged"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000005"},
+ "quote" : "At the finish line is your greatness, but to get there, you must first cross the starting line. So go ahead . . . Cross the starting line.",
+ "mood" : "inspired"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000006"},
+ "quote" : "Anything worth building in this world takes a lot of hard work. By work I mean action. Not just revelations.",
+ "mood" : "inspired"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000007"},
+ "quote" : "Want to find happiness in your life? Appreciate the smal stuff. You are blessed more than you realize.",
+ "mood" : "happiness"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000008"},
+ "quote" : "There's nothing like deep breaths after laughing that hard. Nothing in the world like a sore stomach for the right reasons. -SC",
+ "mood" : "happiness"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000009"},
+ "quote" : "Ultimate fail? Not seizing the day.",
+ "mood" : "hopeful"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000010"},
+ "quote" : "Better things are coming",
+ "mood" : "hopeful"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000011"},
+ "quote" : "We are all explorers. The people that made discoveries just thought a little bit harder about what they were looking at. They were a little bit more curious. Their curiosity changed the way people thought about the world and thus it changed the world. They changed the world. And so can you.",
+ "mood" : "awe"
+}
+{
+ "_id" : {"$oid":"q00000000000000000000012"},
+ "quote" : "Dwell on the beauty of life. Watch the stars and see yourself runnign with them.",
+ "mood" : "awe"
+}
 
 
-// EXACT _id - increment #, change quote, change mood 
+// EXACT _id - increment #, change quote, change mood
 // two quotes for each adj.
 // Schema for quotes and possible create your own
 
-// v1 - can we pull one in first? 
+// v1 - can we pull one in first?
 // v2 - randomize that quote
