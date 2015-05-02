@@ -1,0 +1,12 @@
+div {
+	border: 1px solid black;
+}
+
+body { 
+  background: url("/images/BGimgs/179H.jpg");
+}
+
+#quoteCollectionDiv {
+  background-color: #FEFCE0;
+  border-radius: 50px;
+}
