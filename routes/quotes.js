@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var UserController = require('../UserController');
+var UserController = require('../userController');
 var quoteList = [];
 
 //Including model for quotes
@@ -19,9 +19,9 @@ var sendError = function (req, res, err, message) {
 
 //Send the quote list back to client
 var sendQuoteList = function (req, res, next) {
-  quote.find({}, function (err, quotes) {
+  quote.find({}, function (err, quote) {
 
-    console.log('quotesList',quotes);
+    console.log('quotesList', quote);
 
     if (err) {
       console.log(err);
@@ -35,13 +35,14 @@ var sendQuoteList = function (req, res, next) {
 };
 
 // Handle a GET request from the client to /quoteList
-router.get('/quoteListHome', function (req,res,next) {
+router.get('/quoteList', function (req,res,next) {
+
   // Is the user logged in?
   if (UserController.getCurrentUser() === null) {
     res.redirect("/");
-  }
-
-  sendQuoteList(req, res, next);
+  } 
+  
+  sendQuoteList(req, res, next);    
 });
 
 module.exports = router;

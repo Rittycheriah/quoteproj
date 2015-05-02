@@ -90,7 +90,7 @@ app.post("/login", function(req, res) {
 
 		getUserQuotes(validUser._id)
 		  .then(function (quotes) {
-		  	res.redirect("/quotes/quoteListHome");
+		  	res.redirect("/quotes/quoteList");
 		  })
       .fail(function(err) {
       	sendError(req, res, {errors: err.message}, "Not working");

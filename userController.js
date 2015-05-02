@@ -44,6 +44,7 @@ User.prototype.logout = function (username, password) {
 };
 
 User.prototype.getCurrentUser = function () {
+  console.log('IMA current user ', this.currentUser)
   return this.currentUser;
 };
 
