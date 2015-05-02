@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inspire Me</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Make a quote</h1>
+
+    <form method="POST" action="/quote" id="quoteForm">
+      <div class="formfield">
+        <div class="formfield--prompt">Quote</div>
+        <input type="text" id="quote" name="quote">
+      </div>
+
+      <div class="formfield">
+        <div class="formfield--prompt">Mood</div>
+        <input type="mood" id="mood" name="mood">
+      </div>
+
+      <input class="submitButton" type="submit"></input>
+
+    </form>
+
+  </body>
+</html>
