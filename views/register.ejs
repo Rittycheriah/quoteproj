@@ -1,25 +1,49 @@
 
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Register</title>
+    <title>Register/Sign In</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/register.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
   </head>
   <body>
+    <div class="row">
+      <h1> Welcome to Dually Quoted</h1>
+   
+  <div class="row">
 
-    <h1>Register to create tasks</h1>
+    <h1>Register to Create Your Collection</h1>
 
-    <form method="POST" action="/user/register" id="registerForm">
-      <div class="formfield">
-        <div class="formfield--prompt">Username:</div>
-        <input type="text" id="username" name="username">
-      </div>
-      <div class="formfield">
-        <div class="formfield--prompt">Password:</div>
-        <input type="password" id="password" name="password">
-      </div>
-      <input class="submitButton" type="submit"></input>
-    </form>
+<form method="POST" action="/user/register" id="loginForm">
+        <div class="formfield">
+         <div class="input-group">
+            <input type="text" class="form-control" name="username" placeholder="Username" aria-describedby="sizing-addon1">
+          </div>
+        </div>
+        <br>
+        <div class="formfield">
+         <div class="input-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" aria-describedby="sizing-addon1">
+          </div>
+        </div>
+        <br>
+        <input class="submitbutton" type="submit" value="Inspire Me!"></input>
+     </form>
+
+  </div>
 
   </body>
 </html>
