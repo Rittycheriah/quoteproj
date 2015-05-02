@@ -60,9 +60,9 @@ router.post('/', function(req, res, next) {
     // Show list with new quote included
 });
 
-//save qutoe
-//redirect to /qutoe/;list
-//write a route handler to get qutoe/list
+//save quote
+//redirect to /quote/;list
+//write a route handler to get quote/list
 //read from database all of the quotes
 // create an ejs file quoteList its going to handle
 //render to client
