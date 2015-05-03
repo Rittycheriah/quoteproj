@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Select a Mood</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/selectQ.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1>Select a Mood Below</h1>
+
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8"> </div>
+      <div class="col-md-2"> </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8" id="selectFormDiv">
+
+        <form method="POST" action="/quote/" id="quoteForm">
+
+          <h3> How would you like to feel ?</h3>
+          <br>
+          <div class="row"> 
+            <div class="col-md-6"> 
+              <input type="radio" name="hopeful" value="hopeful">Hopeful <br>
+              <input type="radio" name="awe" value="awe">In Awe <br>
+              <input type="radio" name="happiness" value="happiness">Happiness <br>
+            </div>
+            <div class="col-md-6"> 
+              <input type="radio" name="loved" value="loved">Loved <br>
+              <input type="radio" name="inspired" value="inspired">Inspired <br>
+              <input type="radio" name="encouraged" value="encouraged">Encouraged <br>
+
+            </div>
+          </div>
+        <input class="submitButton" type="submit"></input>
+
+       </form>
+
+      </div>
+      <div class="col-md-2"> </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12"> </div>
+    </div>
+
+  </body>
+</html>

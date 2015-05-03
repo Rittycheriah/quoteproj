@@ -67,5 +67,18 @@ router.post('/', function(req, res, next) {
 // create an ejs file quoteList its going to handle
 //render to client
 
+//Get Quotes By Mood 
+router.get('/selectByMood', function (req, res) {
+
+  // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/");
+  }
+  
+  res.render('selectMood', {
+  });
+    
+});
+
 module.exports = router;
 
