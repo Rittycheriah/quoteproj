@@ -19,7 +19,8 @@ var sendError = function(req, res, err, message) {
 
 //Send the quote list back to client
 var sendQuoteList = function(req, res, next) {
-    Quote.find({}, function(err, quotes) {
+    var myuserId = UserController.getCurrentUser()._id;
+    Quote.find({user:myuserId}, function(err, quotes) {
 
         console.log('quotesList', quotes);
 
