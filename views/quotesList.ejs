@@ -18,18 +18,29 @@
   </head>
   <body>
     <h1>Here's where the User lands upon successful entry without any quotes</h1>
-    <% quote %>
-    <div class="row">
-    	<div class="col-md-12">.col-md-1</div>
-    </div>
-    <div class="row">
-  		<div class="col-md-2">.col-md-2</div>
-  		<div class="col-md-8" id="quoteCollectionDiv">.col-md-8</div>
-  		<div class="col-md-2">.col-md-2</div>
-		</div>
-		<div class="row">
-      <div class="col-md-12">.col-md-1</div>
-		</div>
+
+    <a href="/quotes/create">Create a new Quote!</a>
+
+    <% for (var c = 0; c < quotes.length; c++) { %>
+      <% var currentQuote = quotes[c]; %>
+      <div class="todo-item" id="todo_<%= currentQuote._id %>">
+        <div>
+          Title: <%= currentQuote.quote %>
+        </div>
+        <div>
+          Description: <%= currentQuote.mood %>
+        </div>
+        <div class="actions">
+          <a class="deleteButton" id="<%= currentQuote._id %>">Delete</a>
+          <a class="editButton" id="<%= currentQuote._id %>">Edit</a>
+        </div>
+      </div>
+    <% } %>
+
+
+
+
+
   </body>
 </html>
 

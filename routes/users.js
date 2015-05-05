@@ -11,9 +11,9 @@ var sendError = function (req, res, err, message) {
 	console.log('Render the error template');
 	res.render("error", {
 		error: {
-		status: 500, 
+		status: 500,
 		stack: JSON.stringify(err.errors)
-	}, 
+	},
 	message: message
 	});
 };
@@ -75,7 +75,7 @@ app.post("/register", function (req, res) {
 });
 
 
-// Handle the login action 
+// Handle the login action
 app.post("/login", function(req, res) {
 	console.log('Node handling /user/login route');
 
@@ -90,7 +90,7 @@ app.post("/login", function(req, res) {
 
 		getUserQuotes(validUser._id)
 		  .then(function (quotes) {
-		  	res.redirect("/quotes/quoteList");
+		  	res.redirect("/quotes/list");
 		  })
       .fail(function(err) {
       	sendError(req, res, {errors: err.message}, "Not working");
