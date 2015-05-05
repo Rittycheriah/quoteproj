@@ -4,45 +4,46 @@ var UserController = require('../userController');
 var quoteList = [];
 
 //Including model for quotes
-var quote = require('../models/quote');
+var Quote = require('../models/quote');
 
 //Send the error message back to the client
-var sendError = function (req, res, err, message) {
-	res.render("error", {
-		error: {
-			status: 500,
-			stack: JSON.stringify(err.errors)
-		}, 
-		message: message
-	});
+var sendError = function(req, res, err, message) {
+    res.render("error", {
+        error: {
+            status: 500,
+            stack: JSON.stringify(err.errors)
+        },
+        message: message
+    });
 };
 
 //Send the quote list back to client
-var sendQuoteList = function (req, res, next) {
-  quote.find({}, function (err, quote) {
+var sendQuoteList = function(req, res, next) {
+    var myuserId = UserController.getCurrentUser()._id;
+    Quote.find({user:myuserId}, function(err, quotes) {
 
-    console.log('quotesList', quote);
+        console.log('quotesList', quotes);
 
-    if (err) {
-      console.log(err);
-      sendError(req, res, err, "Could not get quote List");
-    } else {
-      res.render("quotesList", {
-        quote: quote
-      });
-    }
-  });
+        if (err) {
+            console.log(err);
+            sendError(req, res, err, "Could not get quote List");
+        } else {
+            res.render("quotesList", {
+                quotes: quotes
+            });
+        }
+    });
 };
 
 // Handle a GET request from the client to /quoteList
-router.get('/quoteList', function (req,res,next) {
+router.get('/list', function(req, res, next) {
 
-  // Is the user logged in?
-  if (UserController.getCurrentUser() === null) {
-    res.redirect("/");
-  } 
-  
-  sendQuoteList(req, res, next);    
+    // Is the user logged in?
+    if (UserController.getCurrentUser() === null) {
+        res.redirect("/");
+    }
+
+    sendQuoteList(req, res, next);
 });
 
 /* GET users listing. */
@@ -51,21 +52,26 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    // Save the form data to database
-    var theFormPostData = req.body;
-    var myQuote = new Quote(theFormPostData);
-    // creates a new schema item
-    console.log(myQuote);
-    res.send("Be Inspired")
-    // Show list with new quote included
-});
+    // Who is the user?
+    var theUser = UserController.getCurrentUser();
 
-//save quote
-//redirect to /quote/;list
-//write a route handler to get quote/list
-//read from database all of the quotes
-// create an ejs file quoteList its going to handle
-//render to client
+    // What did the user enter in the form?
+    var theFormPostData = req.body
+    theFormPostData.user = theUser._id;
+
+    console.log('theFormPostData', theFormPostData);
+
+
+    var myquote = new Quote(theFormPostData);
+
+    myquote.save(function(err, quote) {
+        if (err) {
+            sendError(req, res, err, "Failed to save task");
+        } else {
+            res.redirect('/quotes/list');
+        }
+    });
+});
 
 //Get Quotes By Mood 
 router.get('/selectByMood', function (req, res) {
@@ -81,4 +87,5 @@ router.get('/selectByMood', function (req, res) {
 });
 
 module.exports = router;
+
 
