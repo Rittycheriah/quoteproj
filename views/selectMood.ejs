@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Inspire Me</title>
+    <title>Select a Mood</title>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-    <link rel='stylesheet' href='/stylesheets/home.css' />
+    <link rel='stylesheet' href='/stylesheets/selectQ.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -17,8 +17,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <h1>Make a quote</h1>
-          <nav class="navbar navbar-default">
+
+    <h1>Select a Mood Below</h1>
+
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -43,20 +45,44 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <form method="POST" action="/quotes" id="quoteForm">
-      <div class="formfield">
-        <div class="formfield--prompt">Quote</div>
-        <input type="text" id="quote" name="quote">
+
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8"> </div>
+      <div class="col-md-2"> </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8" id="selectFormDiv">
+
+        <form method="POST" action="/quote/" id="quoteForm">
+
+          <h3> How would you like to feel ?</h3>
+          <br>
+          <div class="row"> 
+            <div class="col-md-6"> 
+              <input type="radio" name="mood" value="hopeful">Hopeful <br>
+              <input type="radio" name="mood" value="awe">In Awe <br>
+              <input type="radio" name="mood" value="happiness">Happiness <br>
+            </div>
+            <div class="col-md-6"> 
+              <input type="radio" name="mood" value="loved">Loved <br>
+              <input type="radio" name="mood" value="inspired">Inspired <br>
+              <input type="radio" name="mood" value="encouraged">Encouraged <br>
+            </div>
+          </div>
+        <input class="submitButton" type="submit"></input>
+
+       </form>
+
       </div>
+      <div class="col-md-2"> </div>
+    </div>
 
-      <div class="formfield">
-        <div class="formfield--prompt">Mood</div>
-        <input type="mood" id="mood" name="mood">
-      </div>
-
-      <input class="submitButton" type="submit"></input>
-
-    </form>
+    <div class="row">
+      <div class="col-md-12"> </div>
+    </div>
 
   </body>
 </html>

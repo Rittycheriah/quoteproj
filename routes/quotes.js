@@ -73,6 +73,19 @@ router.post('/', function(req, res, next) {
     });
 });
 
+//Get Quotes By Mood 
+router.get('/selectByMood', function (req, res) {
+
+  // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/");
+  }
+  
+  res.render('selectMood', {
+  });
+    
+});
+
 module.exports = router;
 
 
