@@ -17,7 +17,33 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
+
     <h1>Select a Mood Below</h1>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Create Your Own</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/user/logout" >Log Out</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <div class="row">
       <div class="col-md-2"> </div>
@@ -35,15 +61,14 @@
           <br>
           <div class="row"> 
             <div class="col-md-6"> 
-              <input type="radio" name="hopeful" value="hopeful">Hopeful <br>
-              <input type="radio" name="awe" value="awe">In Awe <br>
-              <input type="radio" name="happiness" value="happiness">Happiness <br>
+              <input type="radio" name="mood" value="hopeful">Hopeful <br>
+              <input type="radio" name="mood" value="awe">In Awe <br>
+              <input type="radio" name="mood" value="happiness">Happiness <br>
             </div>
             <div class="col-md-6"> 
-              <input type="radio" name="loved" value="loved">Loved <br>
-              <input type="radio" name="inspired" value="inspired">Inspired <br>
-              <input type="radio" name="encouraged" value="encouraged">Encouraged <br>
-
+              <input type="radio" name="mood" value="loved">Loved <br>
+              <input type="radio" name="mood" value="inspired">Inspired <br>
+              <input type="radio" name="mood" value="encouraged">Encouraged <br>
             </div>
           </div>
         <input class="submitButton" type="submit"></input>
