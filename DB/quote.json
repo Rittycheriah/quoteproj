@@ -55,6 +55,6 @@
 }
 {
  "_id" : {"$oid":"q00000000000000000000012"},
- "quote" : "Dwell on the beauty of life. Watch the stars and see yourself runnign with them.",
+ "quote" : "Dwell on the beauty of life. Watch the stars and see yourself running with them.",
  "mood" : "awe"
 }
