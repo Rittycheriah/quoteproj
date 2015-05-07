@@ -7,7 +7,7 @@ h3 {
 	text-align: center;
 }
 
-body { 
+body {
   background: url("/images/BGimgs/RegisterBG.jpg");
 }
 
@@ -18,15 +18,17 @@ body {
 
 .carouselimgs {
 	height: 500px !important;
-	margin-left: 20%;
-	margin-right: 25%;
 }
 
 div.formcontrol {
 	width: 280px !important;
-	margin-left: 50px;
+
 }
 
 .submitbutton {
-	margin-left: 50px;
+
+}
+
+div{
+  border: 1px solid black;
 }

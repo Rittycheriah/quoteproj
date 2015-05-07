@@ -23,22 +23,23 @@
 
     <% for (var c = 0; c < quotes.length; c++) { %>
       <% var currentQuote = quotes[c]; %>
-      <div class="todo-item" id="todo_<%= currentQuote._id %>">
+      <div class="quote-item" id="quote_<%= currentQuote._id %>">
         <div>
-          Title: <%= currentQuote.quote %>
+          Quote: <%= currentQuote.quote %>
         </div>
         <div>
-          Description: <%= currentQuote.mood %>
+          Mood: <%= currentQuote.mood %>
         </div>
         <div class="actions">
           <a class="deleteButton" id="<%= currentQuote._id %>">Delete</a>
-          <a class="editButton" id="<%= currentQuote._id %>">Edit</a>
+          <a class="editButton btn btn-" id="<%= currentQuote._id %>">Edit</a>
         </div>
       </div>
     <% } %>
 
 
-
+ <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="/javascripts/quoteHandler.js"></script>
 
 
   </body>
