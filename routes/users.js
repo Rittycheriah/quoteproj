@@ -104,6 +104,7 @@ app.post("/login", function(req, res) {
 });
 
 app.get("/logout", function(req, res){
+	console.log("made it y'all");
 	UserController.logout();
 	res.redirect("/");
 });

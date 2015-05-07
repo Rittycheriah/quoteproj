@@ -8,22 +8,19 @@ var Quote = require('../models/quote');
 
 //Send the error message back to the client
 var sendError = function(req, res, err, message) {
-    res.render("error", {
-        error: {
-            status: 500,
-            stack: JSON.stringify(err.errors)
-        },
-        message: message
-    });
+  res.render("error", {
+    error: {
+      status: 500,
+      stack: JSON.stringify(err.errors)
+    },
+    message: message
+  });
 };
 
 //Send the quote list back to client
 var sendQuoteList = function(req, res, next) {
     var myuserId = UserController.getCurrentUser()._id;
-    Quote.find({
-        user: myuserId
-    }, function(err, quotes) {
-
+    Quote.find({user: myuserId}, function(err, quotes) {
         console.log('quotesList', quotes);
 
         if (err) {
@@ -40,12 +37,12 @@ var sendQuoteList = function(req, res, next) {
 // Handle a GET request from the client to /quoteList
 router.get('/list', function(req, res, next) {
 
-    // Is the user logged in?
-    if (UserController.getCurrentUser() === null) {
-        res.redirect("/");
-    }
+  // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/");
+  }
 
-    sendQuoteList(req, res, next);
+  sendQuoteList(req, res, next);
 });
 
 /* GET users listing. */
@@ -58,7 +55,8 @@ router.get('/create', function(req, res, next) {
     });
 });
 
-router.get('/:id', function (req, res) {
+//Editing the quote
+router.get('/edit/:id', function (req, res) {
 
   // Is the user logged in?
   if (UserController.getCurrentUser() === null) {
@@ -81,14 +79,16 @@ router.get('/:id', function (req, res) {
   });
 });
 
-router.post('/', function(req, res, next) {
-
+//Send updated info back to client-side
+router.post('/edit', function(req, res, next) {
     if (req.body.db_id !== "") {
-
         // Find it
+       console.log(req.body.db_id);
         Quote.find({
             _id: req.body.db_id
         }, function(err, foundQuote) {
+            foundQuote = foundQuote[0];
+            console.log(foundQuote);
             if (err) {
                 sendError(req, res, err, "Hmm . . . What exactly are you looking for?");
             } else {
@@ -96,13 +96,13 @@ router.post('/', function(req, res, next) {
 
                 foundQuote.quote = req.body.quote;
                 foundQuote.mood = req.body.mood;
-                foundQuote.user = req.body.user
-
 
                 // Save the updated item.
                 foundQuote.save(function(err, newOne) {
                     if (err) {
-                        sendError(req, res, err, "Shit. That didn't work.");
+                        console.log(foundQuote.user)
+                        console.log(err);
+                        sendError(req, res, err, "That didn't work.");
                     } else {
                         res.redirect('/quotes/list');
                     }
@@ -120,7 +120,6 @@ router.post('/', function(req, res, next) {
         theFormPostData.user = theUser._id;
 
         console.log('theFormPostData', theFormPostData);
-
 
         var myquote = new Quote(theFormPostData);
 
@@ -150,15 +149,61 @@ router.delete('/', function(req, res) {
         });
 });
 
+//Get Quotes By Mood
+router.get('/selectByMood', function(req, res) {
+  // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/");
+  }
+  res.render('selectMood', {});
+});
+
+// creating new quote from selectByMood
+router.post('/selectMood', function(req, res) {
+
+  //Get current user
+  var theUser = UserController.getCurrentUser();
+
+  // What did the user enter in the form?
+  var theFormPostData = req.body;
+
+  //assign a user to the form
+  theFormPostData.user = theUser._id;
+
+  // What the req. obj looks like, check CLI
+  console.log('theFormPostData', theFormPostData);
+
+
+  //find a quote based on the users selected mood
+  Quote.findOne ({mood: req.body.mood}, function(err, foundQuote) {
+
+    if (err) {
+      sendError(req, res, err, "Could not find a quote with selected mood");
+    } else {
+
+      //Console log foundQuote
+      console.log('****FOUND QUOTE', foundQuote);
+
+      //push foundQuote into newQuote schema
+      var selectedQuote = new Quote({
+        quote: foundQuote.quote,
+        mood: foundQuote.mood,
+        user: theUser._id
+      });
+
+      console.log('*** SELECTED QUOTE', selectedQuote);
+
+      // Save the new item
+      selectedQuote.save(function(err, quote) {
+        if (err) {
+          console.log(err);
+          sendError(req, res, err, "Failed to save quote");
+        } else {
+          res.redirect('/quotes/list');
+          console.log("I saved dat mug ********");        }
+      });
+    }
+  });
+});
 
 module.exports = router;
-
-
-
-
-//save quote
-//redirect to /quote/list
-//write a route handler to get qutoe/list
-//read from database all of the quotes
-// create an ejs file quoteList its going to handle
-//render to client
