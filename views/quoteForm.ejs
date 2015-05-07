@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/register.css' />
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
     <title>Inspire Me</title>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -16,6 +31,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
+
   <body>
     <h1>Make a quote</h1>
           <nav class="navbar navbar-default">
@@ -43,15 +59,23 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <form method="POST" action="/quotes" id="quoteForm">
+    <form method="POST" action="/quotes/edit" id="quoteForm">
+      <input type="hidden" name="db_id" value="<%= quote._id %>">
       <div class="formfield">
         <div class="formfield--prompt">Quote</div>
-        <input type="text" id="quote" name="quote">
+        <input type="text" id="quote" name="quote" value="<%= quote.quote%>">
       </div>
 
       <div class="formfield">
         <div class="formfield--prompt">Mood</div>
-        <input type="mood" id="mood" name="mood">
+
+             <input type="radio" name="mood" value="hopeful"<%= (quote.mood === 'hopeful') ? "checked" : "" %>>Hopeful <br>
+             <input type="radio" name="mood" value="awe" <%= (quote.mood === 'awe') ? "checked" : "" %>>In Awe <br>
+             <input type="radio" name="mood" value="happiness" <%= (quote.mood === 'happiness') ? "checked" : "" %>>Happiness <br>
+             <input type="radio" name="mood" value="loved" <%= (quote.mood === 'loved') ? "checked" : "" %>>Loved <br>
+             <input type="radio" name="mood" value="inspired" <%= (quote.mood === 'inspired') ? "checked" : "" %>>Inspired <br>
+             <input type="radio" name="mood" value="encouraged" <%= (quote.mood === 'encouraged') ? "checked" : "" %>>Encouraged <br>
+
       </div>
 
       <input class="submitButton" type="submit"></input>

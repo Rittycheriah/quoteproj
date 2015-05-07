@@ -5,6 +5,7 @@
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
+
     <link rel='stylesheet' href='/stylesheets/home.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <!-- Latest compiled and minified CSS -->
@@ -15,9 +16,11 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="/javascripts/quoteHandler.js"></script>
   </head>
   <body>
-    <h1>Here's where the User lands upon successful entry without any quotes</h1>
+
+
       <nav class="navbar navbar-default">
       <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,32 +46,38 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
     <div class="row">
       <div class="col-md-2"> </div>
-    	<div class="col-md-8">.col-md-1</div>
+      <div class="col-md-8">.col-md-1
+        <h1>Here's where the User lands upon successful entry without any quotes</h1>
+      </div>
       <div class="col-md-2">.col-md-1</div>
     </div>
+
     <div class="row">
-  		<div class="col-md-2">.col-md-2</div>
-  		<div class="col-md-8" id="quoteCollectionDiv">
-        <% for (var c = quotes.length - 1; c >= 0; c--) { %>
-          <% var currentQuote = quotes[c]; %>
-          <div class="todo-item" id="todo_<%= currentQuote._id %>">
-            <div>
-              Title: <%= currentQuote.quote %>
+      <div class="col-md-2">.col-md-2</div>
+      <div class="col-md-8" id="quoteCollectionDiv">
+
+          <% for (var c = quotes.length - 1; c >= 0; c--) { %>
+            <% var currentQuote = quotes[c]; %>
+            <div class="quote-item" id="quote_<%= currentQuote._id %>">
+              <div>
+                Quote: <%= currentQuote.quote %>
+              </div>
+              <div>
+                Mood: <%= currentQuote.mood %>
+              </div>
+              <div class="actions">
+                <a class="deleteButton" id="<%= currentQuote._id %>">Delete</a>
+                <a class="editButton btn btn-" id="<%= currentQuote._id %>">Edit</a>
+              </div>
             </div>
-            <div>
-              Description: <%= currentQuote.mood %>
-            </div>
-            <div class="actions">
-              <a class="deleteButton" id="<%= currentQuote._id %>">Delete</a>
-              <a class="editButton" id="<%= currentQuote._id %>">Edit</a>
-            </div>
-          </div>
-        <% } %>
+          <% } %>
       </div>
       <div class="col-md-2">.col-md-2</div>
     </div>
+
     <div class="row">
       <div class="col-md-12">.col-md-1</div>
     </div>
