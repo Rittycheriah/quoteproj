@@ -1,4 +1,13 @@
-/*#FEFCE0 color for div filter on bg image*/
+/*#FEFCE0 color for div filter on bg image
+CSS for the register page ONLY
+*/
+
+body {
+  background: url("/images/BGimgs/RegisterBG.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 h1 {
 	text-align: center;
 }
@@ -7,28 +16,23 @@ h3 {
 	text-align: center;
 }
 
-body {
-  background: url("/images/BGimgs/RegisterBG.jpg");
+
+form#loginForm {
+	text-align: center;
+}
+
+.formfield {
+	margin: 0 auto !important;
 }
 
 #loginForm {
   margin: 0 auto;
-  width: 260px;
 }
 
-.carouselimgs {
-	height: 500px !important;
+.input-group {
+  margin: 0 auto;
 }
 
-div.formcontrol {
-	width: 280px !important;
-
-}
-
-.submitbutton {
-
-}
-
-div{
-  border: 1px solid black;
+#spacer {
+ height: 300px;
 }

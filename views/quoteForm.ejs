@@ -59,6 +59,8 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+    <!-- Begin Creating New Quotes with the form below -->
     <form method="POST" action="/quotes/edit" id="quoteForm">
       <input type="hidden" name="db_id" value="<%= quote._id %>">
       <div class="formfield">
@@ -69,12 +71,12 @@
       <div class="formfield">
         <div class="formfield--prompt">Mood</div>
 
-             <input type="radio" name="mood" value="hopeful"<%= (quote.mood === 'hopeful') ? "checked" : "" %>>Hopeful <br>
-             <input type="radio" name="mood" value="awe" <%= (quote.mood === 'awe') ? "checked" : "" %>>In Awe <br>
-             <input type="radio" name="mood" value="happiness" <%= (quote.mood === 'happiness') ? "checked" : "" %>>Happiness <br>
-             <input type="radio" name="mood" value="loved" <%= (quote.mood === 'loved') ? "checked" : "" %>>Loved <br>
-             <input type="radio" name="mood" value="inspired" <%= (quote.mood === 'inspired') ? "checked" : "" %>>Inspired <br>
-             <input type="radio" name="mood" value="encouraged" <%= (quote.mood === 'encouraged') ? "checked" : "" %>>Encouraged <br>
+          <input type="radio" name="mood" value="Hopeful"<%= (quote.mood === 'hopeful') ? "checked" : "" %>>Hopeful <br>
+          <input type="radio" name="mood" value="Awe" <%= (quote.mood === 'awe') ? "checked" : "" %>>In Awe <br>
+          <input type="radio" name="mood" value="Happiness" <%= (quote.mood === 'happiness') ? "checked" : "" %>>Happiness <br>
+          <input type="radio" name="mood" value="Loved" <%= (quote.mood === 'loved') ? "checked" : "" %>>Loved <br>
+          <input type="radio" name="mood" value="Inspired" <%= (quote.mood === 'inspired') ? "checked" : "" %>>Inspired <br>
+          <input type="radio" name="mood" value="Encouraged" <%= (quote.mood === 'encouraged') ? "checked" : "" %>>Encouraged <br>
 
       </div>
 

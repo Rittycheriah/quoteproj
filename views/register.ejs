@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Register/Sign In</title>
+    <title>Dually Quoted Register </title>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -19,30 +19,38 @@
 
   </head>
   <body>
+
+    <h1> Welcome to Dually Quoted</h1>
+
     <div class="row">
-      <h1> Welcome to Dually Quoted</h1>
-
-  <div class="row">
-
-    <h1>Register to Create Your Collection</h1>
-
-<form method="POST" action="/user/register" id="loginForm">
-        <div class="formfield">
-         <div class="input-group">
-            <input type="text" class="form-control" name="username" placeholder="Username" aria-describedby="sizing-addon1">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <h1>Register to Create Your Collection</h1>
+        <fieldset>
+        <form method="POST" action="/user/register" id="loginForm">
+          <div class="formfield">
+            <div class="input-group">
+              <input id="inputText" type="text" class="form-control" name="username" placeholder="Username" aria-describedby="sizing-addon1">
+            </div>
           </div>
-        </div>
-        <br>
-        <div class="formfield">
-         <div class="input-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" aria-describedby="sizing-addon1">
+          <br>
+          <div class="formfield">
+            <div class="input-group">
+              <input id="inputText" type="password" class="form-control" name="password" placeholder="Password" aria-describedby="sizing-addon1">
+            </div>
           </div>
-        </div>
-        <br>
-        <input class="submitbutton" type="submit" value="Inspire Me!"></input>
-     </form>
-
-  </div>
+         <br>
+          <input class="submitbutton" type="submit" value="Inspire Me!"></input>
+       </form>
+       </fieldset>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row" id="spacer">
+     <div class="col-md-4"></div>
+     <div class="col-md-4"></div>
+     <div class="col-md-4"></div>
+    </div>
 
   </body>
 </html>

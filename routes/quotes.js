@@ -175,7 +175,7 @@ router.post('/selectMood', function(req, res) {
 
 
   //find a quote based on the users selected mood
-  Quote.findOne ({mood: req.body.mood}, function(err, foundQuote) {
+  Quote.findOne({mood: req.body.mood}, function(err, foundQuote) {
 
     if (err) {
       sendError(req, res, err, "Could not find a quote with selected mood");
