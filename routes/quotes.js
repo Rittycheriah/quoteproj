@@ -21,7 +21,6 @@ var sendError = function(req, res, err, message) {
 var sendQuoteList = function(req, res, next) {
     var myuserId = UserController.getCurrentUser()._id;
     Quote.find({user: myuserId}, function(err, quotes) {
-        console.log('quotesList', quotes);
 
         if (err) {
             console.log(err);
@@ -32,6 +31,18 @@ var sendQuoteList = function(req, res, next) {
             });
         }
     });
+};
+
+var randomize =  function (moodQ){
+  for (var i = moodQ.length -1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i+1));
+    var temp = moodQ[i];
+    moodQ[i] = moodQ[j];
+    moodQ[j] = temp;
+  }
+
+  console.log("Get Dat One--------------", moodQ[0]);
+  return moodQ[0];
 };
 
 // Handle a GET request from the client to /quoteList
@@ -100,7 +111,7 @@ router.post('/edit', function(req, res, next) {
                 // Save the updated item.
                 foundQuote.save(function(err, newOne) {
                     if (err) {
-                        console.log(foundQuote.user)
+                        console.log(foundQuote.user);
                         console.log(err);
                         sendError(req, res, err, "That didn't work.");
                     } else {
@@ -116,7 +127,7 @@ router.post('/edit', function(req, res, next) {
         var theUser = UserController.getCurrentUser();
 
         // What did the user enter in the form?
-        var theFormPostData = req.body
+        var theFormPostData = req.body;
         theFormPostData.user = theUser._id;
 
         console.log('theFormPostData', theFormPostData);
@@ -135,7 +146,7 @@ router.post('/edit', function(req, res, next) {
 
 router.delete('/', function(req, res) {
     console.log("this is the delete req", req.body);
-    Quote.find({})
+    Quote.find({quote_id: req.body.quote_id})
         .remove(function(err) {
 
             // Was there an error when removing?
@@ -175,34 +186,29 @@ router.post('/selectMood', function(req, res) {
 
 
   //find a quote based on the users selected mood
-  Quote.findOne({mood: req.body.mood}, function(err, foundQuote) {
+  Quote.find({mood: req.body.mood}, function (err, moodQ) {
 
-    if (err) {
-      sendError(req, res, err, "Could not find a quote with selected mood");
-    } else {
+    //Randomize from database
+    var randomQ = randomize(moodQ);
+    console.log("*********************", randomQ);
 
-      //Console log foundQuote
-      console.log('****FOUND QUOTE', foundQuote);
+    //push foundQuote into newQuote schema
+    var selectedQuote = new Quote({
+      quote: randomQ.quote,
+      mood: randomQ.mood,
+      user: theUser._id
+    });
 
-      //push foundQuote into newQuote schema
-      var selectedQuote = new Quote({
-        quote: foundQuote.quote,
-        mood: foundQuote.mood,
-        user: theUser._id
-      });
-
-      console.log('*** SELECTED QUOTE', selectedQuote);
-
-      // Save the new item
-      selectedQuote.save(function(err, quote) {
-        if (err) {
-          console.log(err);
-          sendError(req, res, err, "Failed to save quote");
-        } else {
-          res.redirect('/quotes/list');
-          console.log("I saved dat mug ********");        }
-      });
-    }
+    // Save the new item
+    selectedQuote.save(function(err, quote) {
+      if (err) {
+        console.log(err);
+        sendError(req, res, err, "Failed to save quote");
+      } else {
+        res.redirect('/quotes/list');
+        console.log("I saved dat mug ********");
+      }
+    });
   });
 });
 
