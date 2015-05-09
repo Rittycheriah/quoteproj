@@ -135,7 +135,7 @@ router.post('/edit', function(req, res, next) {
 
 router.delete('/', function(req, res) {
     console.log("this is the delete req", req.body);
-    Quote.find({})
+    Quote.find({quote_id: req.body.quote_id})
         .remove(function(err) {
 
             // Was there an error when removing?
