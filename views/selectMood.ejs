@@ -4,7 +4,7 @@
     <title>Select a Mood</title>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='/stylesheets/selectQ.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <!-- Latest compiled and minified CSS -->
@@ -18,7 +18,7 @@
   </head>
   <body>
 
-    <h1>Select a Mood Below</h1>
+    <h1>Dually Quoted</h1>
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -61,19 +61,32 @@
           <h3> How would you like to feel ?</h3>
           <br>
           <div class="row"> 
-            <div class="col-md-6"> 
-              <input type="radio" name="mood" value="Hopeful">Hopeful <br>
-              <input type="radio" name="mood" value="Awe">In Awe <br>
-              <input type="radio" name="mood" value="Happiness">Happiness <br>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"> 
+              <input type="radio" name="mood" class="qOpts" value="Hopeful">Hopeful <br>
+              <input type="radio" name="mood" class="qOpts" value="Awe">In Awe <br>
+              <input type="radio" name="mood" class="qOpts" value="Happiness">Happiness <br>
             </div>
-            <div class="col-md-6"> 
-              <input type="radio" name="mood" value="Loved">Loved <br>
-              <input type="radio" name="mood" value="Inspired">Inspired <br>
-              <input type="radio" name="mood" value="Encouraged">Encouraged <br>
+            <div class="col-md-3"> 
+              <input type="radio" name="mood" class="qOpts" value="Loved">Loved <br>
+              <input type="radio" name="mood" class="qOpts" value="Inspired">Inspired <br>
+              <input type="radio" name="mood" class="qOpts" value="Encouraged">Encouraged <br>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        <div class="row" id="bottomOfForm"> 
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+              <input class="submitButton" type="submit"></input>
+              </div>
+              <div class="col-md-4"></div>
             </div>
           </div>
-        <input class="submitButton" type="submit"></input>
-
+          <div class="col-md-4"></div>
+        </div>
        </form>
 
       </div>

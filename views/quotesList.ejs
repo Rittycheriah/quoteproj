@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Dually Quote Home</title>
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -19,14 +20,20 @@
   <script src="/javascripts/quoteHandler.js"></script>
   </head>
   <body>
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-8">
+        <h1>Dually Quoted</h1>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
 
-
-      <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <nav class="navbar navbar-default navbar_custom" id="navbar_pro">
+      <div class="container-fluid navbar_custom">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -47,19 +54,20 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    
     <div class="row">
       <div class="col-md-2"> </div>
-      <div class="col-md-8">.col-md-1
-        <h1>Here's where the User lands upon successful entry without any quotes</h1>
+      <div class="col-md-8">
       </div>
-      <div class="col-md-2">.col-md-1</div>
+      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2">.col-md-2</div>
+      <div class="col-md-2"></div>
       <div class="col-md-8" id="quoteCollectionDiv">
 
           <% for (var c = quotes.length - 1; c >= 0; c--) { %>
+            <br>
             <% var currentQuote = quotes[c]; %>
             <div class="quote-item" id="quote_<%= currentQuote._id %>">
               <div>
@@ -73,13 +81,14 @@
                 <a class="editButton btn btn-" id="<%= currentQuote._id %>">Edit</a>
               </div>
             </div>
+          </br>
           <% } %>
       </div>
-      <div class="col-md-2">.col-md-2</div>
+      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-12">.col-md-1</div>
+      <div class="col-md-12"></div>
     </div>
 
   </body>
