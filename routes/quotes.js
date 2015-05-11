@@ -67,7 +67,7 @@ router.get('/create', function(req, res, next) {
 });
 
 //Editing the quote
-router.get('/edit/:id', function (req, res) {
+router.get('/edit/:id', function (req, res) { 
 
   // Is the user logged in?
   if (UserController.getCurrentUser() === null) {
